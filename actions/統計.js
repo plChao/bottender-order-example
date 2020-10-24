@@ -22,13 +22,7 @@ module.exports = async context => {
 
   // 稍微排版一下，一行一種物品
   const result = orderNames
-    .map(
-      o =>
-        `${o} 有 ${sortedOrders[o].length} 人，分別是 ${sortedOrders[o].join(
-          ', '
-        )} 點的`
-    )
-    .join('\n');
+    .map(o =>`${o} 有 ${sortedOrders[o].length} 人，分別是 ${sortedOrders[o].join(', ')} 點的`).join('\n');
   await context.sendText(orderNames || '沒有訂單QQ');
   
   // if(sortedOrders[o].length == 3){
