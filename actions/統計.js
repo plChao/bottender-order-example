@@ -22,12 +22,13 @@ module.exports = async context => {
 
   // 稍微排版一下，一行一種物品
   const result = orderNames
-    .map(o =>`${o} 有 ${sortedOrders[o].length} 人，分別是 ${sortedOrders[o].join(', ')} 點的`).join('\n');
-  await context.sendText(result || '沒有訂單QQ');
-  // if(sortedOrders[o].length == 3){
-  //     const newmes = `開玩桌游囉!!`; 
-  //     await context.sendText(newmes);
-  // }
+    .map(o =>`${o} 有 ${sortedOrders[o].length} 人，分別是 ${sortedOrders[o].join(', ')} `).join('\n');
+  await context.sendText(result || '沒有人玩QQ');
+
+  if(sortedOrders[o].length == 3){
+      const newmes = `開玩桌游囉!!`; 
+      await context.sendText(newmes);
+  }
   // 避免沒有訂單傳送空字串出現錯誤
   
 };
