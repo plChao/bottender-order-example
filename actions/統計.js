@@ -26,7 +26,7 @@ module.exports = async context => {
   await context.sendText(result || '沒有人玩QQ');
 
   if(sortedOrders[o].length == 3){
-      const newmes = `開玩桌游囉!!`; 
+      const newmes = `開玩桌游囉!!`;
       await context.sendText(newmes);
   }
   // 避免沒有訂單傳送空字串出現錯誤

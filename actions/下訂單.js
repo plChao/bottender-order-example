@@ -21,6 +21,34 @@ module.exports = async (context, match) => {
       }),
     });
 
-    await context.sendText(`我知道 ${displayName} 你點的是 ${order}`);
+    await context.sendText(`我知道 ${displayName} 你要 ${order}`);
+    .sort((a, b) => a.order.localeCompare(b.order))
+    .reduce((prev, o) => {
+        const { name, order } = o;
+
+        // 檢查有沒有人點過一樣的東西
+        const match = Object.keys(prev).find(k => order === k);
+        if (match) {
+          // 有人的話就把名字接在 array 後面
+          return {
+            ...prev,
+            [order]: prev[order].concat(name),
+          };
+        }
+        // 或者新開 array
+        return { ...prev, [order]: [name] };
+      }, {});
+
+    const orderNames = Object.keys(sortedOrders);
+
+    // 稍微排版一下，一行一種物品
+    const result = orderNames
+      .map(o =>`${o} 有 ${sortedOrders[o].length} 人，分別是 ${sortedOrders[o].join(', ')} `).join('\n');
+    await context.sendText(result || '沒有人玩QQ');
+
+    if(sortedOrders[o].length == 3){
+        const newmes = `開玩桌游囉!!`;
+        await context.sendText(newmes);
+    }
   }
 };
