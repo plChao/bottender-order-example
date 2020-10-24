@@ -31,7 +31,7 @@ module.exports = async context => {
     .join('\n');
   await context.sendText(orderNames || '沒有訂單QQ');
   
-  if(sortedOrders[o].length == 9){
+  if(sortedOrders[o].length == 3){
       const newmes = `開玩桌游囉!!`; 
       await context.sendText(newmes);
   }
