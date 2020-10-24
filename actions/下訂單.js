@@ -45,7 +45,7 @@ module.exports = async (context, match) => {
     const result = orderNames
       .map(o =>`${o} 有 ${sortedOrders[o].length} 人，分別是 ${sortedOrders[o].join(', ')} `).join('\n');
     
-    if(sortedOrders[o].length == 3){
+    if(`${sortedOrders[o].length}` == `3`){
         await context.sendText('Invite');
     }
     
