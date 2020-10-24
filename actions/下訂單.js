@@ -46,7 +46,7 @@ module.exports = async (context, match) => {
       .map(o =>`${o} 有 ${sortedOrders[o].length} 人，分別是 ${sortedOrders[o].join(', ')} `).join('\n');
     
     if(sortedOrders[o].length == 3){
-        const newmes = [
+        await context.send([
           {
             "type": "text",
             "text": "Brown Cafe",
@@ -92,8 +92,7 @@ module.exports = async (context, match) => {
                 "flex": 0
               }
             ]}
-          ];
-        await context.send(newmes);
+          ]);
     }
     
     await context.sendText(result || '沒有人玩QQ');
