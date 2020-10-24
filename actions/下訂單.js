@@ -21,8 +21,7 @@ module.exports = async (context, match) => {
       }),
     });
 
-    await context.sendText(`我知道 ${displayName} 你要 ${order}`);
-    
+
     const sortedOrders = context.state.訂單.sort((a, b) => a.order.localeCompare(b.order))
     .reduce((prev, o) => {
         const { name, order } = o;
@@ -47,6 +46,8 @@ module.exports = async (context, match) => {
       .map(o =>`${o} 有 ${sortedOrders[o].length} 人，分別是 ${sortedOrders[o].join(', ')} `).join('\n');
     await context.sendText(result || '沒有人玩QQ');
 
+    await context.sendText(`我知道 ${displayName} 你要 ${order}`);
+    
     if(sortedOrders[o].length == 3){
         const newmes = `開玩桌游囉!!`;
         await context.sendText(newmes);
