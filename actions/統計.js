@@ -31,10 +31,10 @@ module.exports = async context => {
     .join('\n');
   await context.sendText(orderNames || '沒有訂單QQ');
   
-  if(sortedOrders[o].length == 3){
-      const newmes = `開玩桌游囉!!`; 
-      await context.sendText(newmes);
-  }
+  // if(sortedOrders[o].length == 3){
+  //     const newmes = `開玩桌游囉!!`; 
+  //     await context.sendText(newmes);
+  // }
   // 避免沒有訂單傳送空字串出現錯誤
   
 };
