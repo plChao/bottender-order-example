@@ -22,7 +22,8 @@ module.exports = async (context, match) => {
     });
 
     await context.sendText(`我知道 ${displayName} 你要 ${order}`);
-    .sort((a, b) => a.order.localeCompare(b.order))
+    
+    const sortedOrders = context.state.訂單.sort((a, b) => a.order.localeCompare(b.order))
     .reduce((prev, o) => {
         const { name, order } = o;
 
