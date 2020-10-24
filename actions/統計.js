@@ -29,7 +29,9 @@ module.exports = async context => {
         )} 點的`
     )
     .join('\n');
-
+  if(sortedOrders[o].length == 9){
+      const newmes = `開玩桌游囉!!`; 
+  }
   // 避免沒有訂單傳送空字串出現錯誤
-  await context.sendText(result || '沒有訂單QQ');
+  await context.sendText(newmes || '沒有訂單QQ');
 };
