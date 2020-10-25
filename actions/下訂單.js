@@ -45,10 +45,9 @@ module.exports = async (context, match) => {
     const result = orderNames
       .map(o =>`${o} 有 ${sortedOrders[o].length} 人，分別是 ${sortedOrders[o].join(', ')} `).join('\n');
     
-    
-    if(sortedOrders[0].length == 3){
-      await context.send(`https://localhost:8000`);
-    }
+      if(sortedOrders[0].length == 3){
+        await context.sendText(`https://localhost:8000`);
+      }
     
     await context.sendText(result || '沒有人玩QQ');
 
