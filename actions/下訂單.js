@@ -47,9 +47,9 @@ module.exports = async (context, match) => {
     
     await context.sendText(sortedOrders[o].length);
 
-    if(sortedOrders[o].length === 3){
-      await context.sendText('Invite');
-    }
+    // if(sortedOrders[o].length === 3){
+    //   await context.sendText('Invite');
+    // }
     // else {
     //   await context.sendText('gggg');
     // }
