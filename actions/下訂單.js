@@ -44,8 +44,8 @@ module.exports = async (context, match) => {
     // 稍微排版一下，一行一種物品
     const result = orderNames
       .map(o =>`${o} 有 ${sortedOrders[o].length} 人，分別是 ${sortedOrders[o].join(', ')} `).join('\n');
-    
-      if(sortedOrders[0].length == 3){
+    const numberspart =  orderNames.map(o =>`${sortedOrders[o].length}`);
+      if(numberspart == `3`){
         await context.sendText(`https://localhost:8000`);
       }
     
