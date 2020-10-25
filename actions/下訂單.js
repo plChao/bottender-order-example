@@ -49,7 +49,7 @@ module.exports = async (context, match) => {
     const participant =  orderNames.map(o =>`@${sortedOrders[o].join(', @')} 成團拉，點取以下連結加入\n`);
       
     if(numberspart == `3`){
-      await context.sendText(`${participant} https://localhost:8000`);
+      await context.sendText(`${participant} https://lineworkshoptu.herokuapp.com/`);
     }
     
     await context.sendText(result || '沒有人玩QQ');
