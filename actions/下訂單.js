@@ -46,6 +46,7 @@ module.exports = async (context, match) => {
       .map(o =>`${o} 有 ${sortedOrders[o].length} 人，分別是 ${sortedOrders[o].join(', ')} `).join('\n');
     
     if(`${sortedOrders[o].length}` == `3`){
+        console.log(sortedOrders[o].length);
         await context.sendText('Invite');
     }
     
