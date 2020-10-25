@@ -48,7 +48,7 @@ module.exports = async (context, match) => {
     const numberspart =  orderNames.map(o =>`${sortedOrders[o].length}`);
     const participant =  orderNames.map(o =>`@${sortedOrders[o].join(', @')} 成團拉，點取以下連結加入\n`);
       
-    if(numberspart == `3`){
+    if(numberspart == `2`){
       await context.sendText(`${participant} https://lineworkshoptu.herokuapp.com/`);
     }
     
