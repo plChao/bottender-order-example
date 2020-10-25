@@ -44,11 +44,13 @@ module.exports = async (context, match) => {
     // 稍微排版一下，一行一種物品
     const result = orderNames
       .map(o =>`${o} 有 ${sortedOrders[o].length} 人，分別是 ${sortedOrders[o].join(', ')} `).join('\n');
+    
     const numberspart =  orderNames.map(o =>`${sortedOrders[o].length}`);
-    const participant =  orderNames.map(o =>`@${sortedOrders[o].join(', @')} 成團拉，點取以下連結加入`).join('\n'));
-      if(numberspart == `3`){
-        await context.sendText(`${participant} https://localhost:8000`);
-      }
+    const participant =  orderNames.map(o =>`@${sortedOrders[o].join(', @')} 成團拉，點取以下連結加入\n`);
+      
+    if(numberspart == `3`){
+      await context.sendText(`${participant} https://localhost:8000`);
+    }
     
     await context.sendText(result || '沒有人玩QQ');
 
